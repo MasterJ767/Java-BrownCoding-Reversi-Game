@@ -23,7 +23,7 @@ public class MoveChecker {
     private Cell[][] cells;
 
     public MoveChecker(Cell[][] cells) {
-
+        this.cells = cells;
     }
 
     /**
@@ -72,9 +72,9 @@ public class MoveChecker {
      * @return pieces for which there exist valid moves
      */
     public ArrayList<Cell> findPotentialMoves(CellStatus colour) {
-        ArrayList<Cell> potentialMoves = new ArrayList<Cell>();
-        for (int i = 0; i <= BOARD_SIZE; i++) {
-            for (int j = 0; j <= BOARD_SIZE; j++) {
+        ArrayList<Cell> potentialMoves = new ArrayList<>();
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
                 if (this.cells[i][j].getValue() == CellStatus.EMPTY){
                     if (this.cells[i][j].isLegal(colour, cells)){
                         potentialMoves.add(this.cells[i][j]);
@@ -109,7 +109,7 @@ public class MoveChecker {
             for (int column = 0; column < BOARD_SIZE; column++) {
                 if (this.cells[column][row].getValue() == CellStatus.LIGHT){
                     lights++;
-                } else if this.cells[row][column].getValue() == CellStatus.DARK{
+                } else if (this.cells[row][column].getValue() == CellStatus.DARK) {
                     darks++;
                 }
             }
