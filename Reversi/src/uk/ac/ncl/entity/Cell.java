@@ -1,6 +1,6 @@
 /**
  * @author Kostiantyn Potomkin
- * @version 0.9
+ * @version 1.1.2
  * @since 05-03-2020
  */
 package uk.ac.ncl.entity;
@@ -112,7 +112,7 @@ public class Cell {
      * @return whether move is possible for the piece. If this is the case, then possible moves are stored in Piece.
      */
     public boolean isLegal(CellStatus colour, Cell[][] cells){
-        CellStatus opponent = colour == CellStatus.LIGHT ? CellStatus.DARK : CellStatus.LIGHT;
+        CellStatus opponent = (colour == CellStatus.LIGHT) ? CellStatus.DARK : CellStatus.LIGHT;
         boolean isLegal = false;
         int score = 0;
         ArrayList<DirectedMove> moves = new ArrayList<DirectedMove>();
@@ -129,13 +129,12 @@ public class Cell {
                     d_row += dir[0];
                     d_col += dir[0];
                     temp_score += 1;
-                    if (0 <= d_col &&  d_col < BOARD_SIZE && 0 <=  d_row
-                            && cells[d_row][d_col].getValue() != CellStatus.EMPTY){
-                        if (cells[d_row][d_col].getValue() == colour) {
+                    if (0 <= d_col &&  d_col < BOARD_SIZE && 0 <=  d_row && d_row < BOARD_SIZE
+                            && cells[d_row][d_col].getValue() != CellStatus.EMPTY
+                            && cells[d_row][d_col].getValue() == colour) {
                             isLegal = true;
                             score += temp_score;
                             moves.add(new DirectedMove(cells[d_row][d_col], dir));
-                        }
                     }
                     else {
                         break;

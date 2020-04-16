@@ -1,6 +1,6 @@
 /**
  * @author Kostiantyn Potomkin
- * @version 0.9
+ * @version 1.1.2
  * @since 05-03-2020
  */
 package uk.ac.ncl.ui;
@@ -30,7 +30,6 @@ public class MainPanel extends JFrame {
         setSize(400, 400);
         setLocationRelativeTo(null);
         addComponentsToPane();
-
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.pack();
         moveChecker.removeMoves(grayCells);

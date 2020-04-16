@@ -11,4 +11,13 @@
     file by assigning values to the `cells` parameter in the class constructor.
     - Logic Error: changed the `<=` symbols to `<` in the `MoveChecker.java` file as the
     comparison was causing the program to search indexes in the array that didn't exist
+
+* v1.1.2 [2020-04-14]: Bug Fixes
+    - Logic Error: modified the conditions of the second if statement in the `islegal`
+    in the `Cell.java` file on line 133. Added a comparison to ensure that the 
+    variable `d_row` was less than the width of the board and combined the conditions of
+    third if statement into the second one as having them separate was redundant. Following
+    these changes the game window now appears.
+    - Syntax Error: added brackets around the condition in the Stream if statement in the
+    `isLegal` method on line 115 of the `Cell.java` file.
     
