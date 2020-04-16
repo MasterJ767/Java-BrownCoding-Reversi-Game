@@ -30,7 +30,7 @@ public class MoveChecker {
      * Generates a move of the opponent
      *
      * @param cellStatus - colour of the opponent
-     * @return a piece to make a move
+     * @return opponentsMove - a piece to make a move
      */
     public Cell generateOpponent(CellStatus cellStatus) {
         ArrayList<Cell> potentialMoves = findPotentialMoves(CellStatus.DARK);
@@ -69,7 +69,7 @@ public class MoveChecker {
      * Returns potential moves on the board for the specified colour
      *
      * @param colour - colour of the current player
-     * @return pieces for which there exist valid moves
+     * @return potentialMoves - pieces for which there exist valid moves
      */
     public ArrayList<Cell> findPotentialMoves(CellStatus colour) {
         ArrayList<Cell> potentialMoves = new ArrayList<>();

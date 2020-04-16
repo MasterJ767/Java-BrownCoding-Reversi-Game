@@ -35,7 +35,7 @@ public class Cell {
     private int column;
 
     /**
-     *  Potential moves of the piece
+     * Potential moves of the piece
      */
     private Move move;
 
@@ -52,7 +52,10 @@ public class Cell {
     }
 
     /**
-     *   Changes button's design to have an effect of the "pressed" button
+     * Changes button's design to have an effect of the "pressed" button
+     *
+     * @param colour
+     * @param isPressed
      */
     public void colourTemp(Color colour, boolean isPressed){
         this.jButton.setBackground(colour);
@@ -66,7 +69,9 @@ public class Cell {
     }
 
     /**
-     *   Updates the status of the cell
+     * Updates the status of the cell
+     *
+     * @param value
      */
     public void setValue(CellStatus value) {
         this.value = value;
@@ -107,8 +112,9 @@ public class Cell {
     /**
      * Checks whether there exists a legal move for the piece.
      * If such a move exists, returns true and adds information to the piece.
+     *
      * @param colour - colour of the current player
-     * @param
+     * @param cells - an array of co-ordinates, with each co-ordinate representing a cell on the board
      * @return whether move is possible for the piece. If this is the case, then possible moves are stored in Piece.
      */
     public boolean isLegal(CellStatus colour, Cell[][] cells){

@@ -86,7 +86,8 @@ public class MainPanel extends JFrame {
     /**
      * Checks whether the game has finished
      *
-     * @param moveChecker
+     * @param moveChecker the object which contains the boards current arrangement and
+     *                    determines which moves can be made and when for each player
      */
     private void CheckNextMove(MoveChecker moveChecker){
         if (missedMoves > 1) {
@@ -100,7 +101,8 @@ public class MainPanel extends JFrame {
     /**
      * Makes a move for the opponent
      *
-     * @param opponent
+     * @param opponent the object which represents an opposing player for the player of the
+     *                 game, operated by the computer
      */
     private void MoveOpponent(Cell opponent){
         moveChecker.flipPieces(opponent, OPPONENTS_CELL_STATUS);
@@ -115,7 +117,7 @@ public class MainPanel extends JFrame {
     /**
      * Makes a move for the user with the selected piece
      *
-     * @param tempEl - selected piece
+     * @param tempEl selected piece used to calculate which pieces get flipped on the player's turn
      */
     private void MovePlayer(Cell tempEl){
         missedMoves = 0;
@@ -137,7 +139,7 @@ public class MainPanel extends JFrame {
      *
      * Applies the move, if the clicked cell is corresponds to a potential move
      *
-     * @param tempEl
+     * @param tempEl selected piece used to calculate which pieces get flipped on the player's turn
      */
     private void onClick(Cell tempEl){
         if (tempEl.getValue() == CellStatus.GRAY) {
