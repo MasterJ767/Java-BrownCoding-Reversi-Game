@@ -1,6 +1,6 @@
 /**
  * @author Kostiantyn Potomkin
- * @version 1.1.2
+ * @version 1.1.3
  * @since 05-03-2020
  */
 package uk.ac.ncl.game;
@@ -33,7 +33,7 @@ public class MoveChecker {
      * @return opponentsMove - a piece to make a move
      */
     public Cell generateOpponent(CellStatus cellStatus) {
-        ArrayList<Cell> potentialMoves = findPotentialMoves(CellStatus.DARK);
+        ArrayList<Cell> potentialMoves = findPotentialMoves(cellStatus);
         int max_score = 0;
         Cell opponentsMove = null;
         for (int i = 0; i < potentialMoves.size(); i++){
@@ -56,11 +56,15 @@ public class MoveChecker {
             int[] dir = move.getDirection();
             int d_row = cell.getRow();
             int d_col = cell.getColumn();
-
-            while (d_col != move.getCell().getColumn() && d_row != move.getCell().getRow()) {
-
+            int i = 1;
+            System.out.println(i+". ("+d_row+","+d_col+")");
+            while (0 <= d_col && d_col < BOARD_SIZE && 0 <= d_row && d_row < BOARD_SIZE &&
+                    d_col != move.getCell().getColumn() && d_row != move.getCell().getRow()) {
+                this.cells[d_row][d_col].setValue(colour);
+                i++;
                 d_row += dir[0];
                 d_col += dir[1];
+                System.out.println(i+". ("+d_row+","+d_col+")");
             }
         }
     }

@@ -20,4 +20,15 @@
     these changes the game window now appears.
     - Syntax Error: added brackets around the condition in the Stream if statement in the
     `isLegal` method on line 115 of the `Cell.java` file.
-    
+
+* v1.1.3 [2020-04-21]: Bug Fixes
+    - Logic Error: corrected the first test condition in the `generateOpponentDark` and 
+    `generateOpponentLight` methods in the `MoveCheckerTest.java`.
+    - Logic Error: changed `d_col += dir[0];` to `d_col += dir[1];` so that the correct cells
+    are checked in the isLegal method of the `Cell.java` file.
+    - Logic Error: added a condition to the `flipPieces` method in the `MoveChecker.java`
+    in order to prevent the program from attempting to flip pieces off the board or flip
+    pieces infinitely
+    - Logic Error: swapped the variables `colour` and `CellStatus.EMPTY` in the if conditions
+    present in the `isLegal` method of the `MoveChecker.java` file. This has made the is legal method
+    correctly identify  legal moves.

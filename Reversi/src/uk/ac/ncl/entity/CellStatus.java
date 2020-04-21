@@ -1,6 +1,6 @@
 /**
  * @author Kostiantyn Potomkin
- * @version 1.1.2
+ * @version 1.1.3
  * @since 05-03-2020
  */
 package uk.ac.ncl.entity;

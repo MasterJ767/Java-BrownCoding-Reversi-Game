@@ -1,6 +1,6 @@
 /**
  * @author Kostiantyn Potomkin
- * @version 1.1.2
+ * @version 1.1.3
  * @since 05-03-2020
  */
 package uk.ac.ncl.entity;
@@ -122,30 +122,32 @@ public class Cell {
         boolean isLegal = false;
         int score = 0;
         ArrayList<DirectedMove> moves = new ArrayList<DirectedMove>();
-        int[][] DIRS = {{-1,-1}, {-1,0}, {0,0}, {-1,1}, {0,1}, {0,-1}, {1,1}, {1,0}, {1,-1}};
+        int[][] DIRS = {{-1,-1}, {-1,0}, {-1,1}, {0,1}, {0,-1}, {1,1}, {1,0}, {1,-1}};
 
         for (int[] dir : DIRS){
             int temp_score = 0;
             int d_row = this.getRow() + dir[0];
             int d_col = this.getColumn() + dir[1];
-            if (0 <= d_col &&  d_col < BOARD_SIZE && 0 <=  d_row && d_row < BOARD_SIZE
-                    && cells[d_row][d_col].getValue() != CellStatus.EMPTY
+            if (0 <= d_col && d_col < BOARD_SIZE && 0 <= d_row && d_row < BOARD_SIZE
                     && cells[d_row][d_col].getValue() == opponent) {
                 while (true){
                     d_row += dir[0];
-                    d_col += dir[0];
+                    d_col += dir[1];
                     temp_score += 1;
-                    if (0 <= d_col &&  d_col < BOARD_SIZE && 0 <=  d_row && d_row < BOARD_SIZE
-                            && cells[d_row][d_col].getValue() != CellStatus.EMPTY
-                            && cells[d_row][d_col].getValue() == colour) {
+                    if (0 <= d_col && d_col < BOARD_SIZE && 0 <= d_row && d_row < BOARD_SIZE
+                            && cells[d_row][d_col].getValue() != colour) {
+                        if (cells[d_row][d_col].getValue() == CellStatus.EMPTY) {
                             isLegal = true;
                             score += temp_score;
-                            moves.add(new DirectedMove(cells[d_row][d_col], dir));
+                            break;
+                        }
                     }
                     else {
                         break;
                     }
                 }
+                System.out.println(isLegal);
+                moves.add(new DirectedMove(cells[d_row][d_col], dir));
             }
         }
 

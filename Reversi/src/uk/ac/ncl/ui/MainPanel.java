@@ -1,6 +1,6 @@
 /**
  * @author Kostiantyn Potomkin
- * @version 1.1.2
+ * @version 1.1.3
  * @since 05-03-2020
  */
 package uk.ac.ncl.ui;
@@ -142,11 +142,17 @@ public class MainPanel extends JFrame {
      * @param tempEl selected piece used to calculate which pieces get flipped on the player's turn
      */
     private void onClick(Cell tempEl){
+        System.out.println("11");
         if (tempEl.getValue() == CellStatus.GRAY) {
+            System.out.println("12");
             moveChecker.colourPieces(grayCells, CellStatus.EMPTY);
+            System.out.println("13");
             tempEl.colourTemp(PLAYERS_COLOUR, true);
+            System.out.println("14");
             ActionListener taskPerformer = ae -> MovePlayer(tempEl);
+            System.out.println("15");
             setUpTimer(taskPerformer);
+            System.out.println("16");
         }
     }
 
@@ -157,7 +163,10 @@ public class MainPanel extends JFrame {
      */
     private void setUpTimer(ActionListener taskPerformer){
         Timer timer = new Timer(Constants.DELAY_TIME, taskPerformer);
+        System.out.println("17");
         timer.setRepeats(false);
+        System.out.println("18");
         timer.start();
+        System.out.println("19");
     }
 }
