@@ -1,6 +1,6 @@
 /**
  * @author Kostiantyn Potomkin
- * @version 1.1.3
+ * @version 1.1.4
  * @since 05-03-2020
  */
 package uk.ac.ncl.game;
@@ -56,15 +56,11 @@ public class MoveChecker {
             int[] dir = move.getDirection();
             int d_row = cell.getRow();
             int d_col = cell.getColumn();
-            int i = 1;
-            System.out.println(i+". ("+d_row+","+d_col+")");
-            while (0 <= d_col && d_col < BOARD_SIZE && 0 <= d_row && d_row < BOARD_SIZE &&
-                    d_col != move.getCell().getColumn() && d_row != move.getCell().getRow()) {
-                this.cells[d_row][d_col].setValue(colour);
-                i++;
+            this.cells[d_row][d_col].setValue(colour);
+            while (d_row != move.getCell().getRow() && d_col != move.getCell().getColumn()) {
                 d_row += dir[0];
                 d_col += dir[1];
-                System.out.println(i+". ("+d_row+","+d_col+")");
+                this.cells[d_row][d_col].setValue(colour);
             }
         }
     }

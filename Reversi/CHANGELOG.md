@@ -28,7 +28,13 @@
     are checked in the isLegal method of the `Cell.java` file.
     - Logic Error: added a condition to the `flipPieces` method in the `MoveChecker.java`
     in order to prevent the program from attempting to flip pieces off the board or flip
-    pieces infinitely
+    pieces infinitely.
     - Logic Error: swapped the variables `colour` and `CellStatus.EMPTY` in the if conditions
     present in the `isLegal` method of the `MoveChecker.java` file. This has made the is legal method
     correctly identify  legal moves.
+    
+* v1.1.4 [2020-04-22]: Bug Fixes
+    - Logic Error: corrected the `getRow()` method in the `Cell.java` file by correctly returning the 
+    row and not the column.
+    - Logic Error: changed the flip pieces method so that the empty cell at the start of the move is
+    coloured before the while loop starts which colours all the pieces between. 

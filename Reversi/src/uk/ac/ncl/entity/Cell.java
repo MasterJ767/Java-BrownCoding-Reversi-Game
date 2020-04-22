@@ -1,6 +1,6 @@
 /**
  * @author Kostiantyn Potomkin
- * @version 1.1.3
+ * @version 1.1.4
  * @since 05-03-2020
  */
 package uk.ac.ncl.entity;
@@ -10,7 +10,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.util.ArrayList;
 
-import static uk.ac.ncl.Constants.BOARD_SIZE;
+import static uk.ac.ncl.Constants.*;
 
 /**
  * Represents each cell of the playing board.
@@ -94,7 +94,7 @@ public class Cell {
     }
 
     public int getRow() {
-        return column;
+        return row;
     }
 
     public int getColumn() {
@@ -118,11 +118,11 @@ public class Cell {
      * @return whether move is possible for the piece. If this is the case, then possible moves are stored in Piece.
      */
     public boolean isLegal(CellStatus colour, Cell[][] cells){
-        CellStatus opponent = (colour == CellStatus.LIGHT) ? CellStatus.DARK : CellStatus.LIGHT;
+        CellStatus opponent = (colour == OPPONENTS_CELL_STATUS) ? PLAYERS_CELL_STATUS : OPPONENTS_CELL_STATUS;
         boolean isLegal = false;
         int score = 0;
         ArrayList<DirectedMove> moves = new ArrayList<DirectedMove>();
-        int[][] DIRS = {{-1,-1}, {-1,0}, {-1,1}, {0,1}, {0,-1}, {1,1}, {1,0}, {1,-1}};
+        int[][] DIRS = {{-1,-1}, {-1,0}, {-1,1}, {0,1}, {1,1}, {1,0}, {1,-1}, {0,-1}};
 
         for (int[] dir : DIRS){
             int temp_score = 0;
@@ -135,10 +135,11 @@ public class Cell {
                     d_col += dir[1];
                     temp_score += 1;
                     if (0 <= d_col && d_col < BOARD_SIZE && 0 <= d_row && d_row < BOARD_SIZE
-                            && cells[d_row][d_col].getValue() != colour) {
-                        if (cells[d_row][d_col].getValue() == CellStatus.EMPTY) {
-                            isLegal = true;
+                            && cells[d_row][d_col].getValue() != CellStatus.EMPTY) {
+                        if (cells[d_row][d_col].getValue() == colour) {
                             score += temp_score;
+                            moves.add(new DirectedMove(cells[d_row][d_col], dir));
+                            isLegal = true;
                             break;
                         }
                     }
@@ -146,8 +147,6 @@ public class Cell {
                         break;
                     }
                 }
-                System.out.println(isLegal);
-                moves.add(new DirectedMove(cells[d_row][d_col], dir));
             }
         }
 
