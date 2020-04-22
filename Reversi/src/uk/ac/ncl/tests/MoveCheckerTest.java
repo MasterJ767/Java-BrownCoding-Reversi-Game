@@ -41,8 +41,8 @@ class MoveCheckerTest {
         // Test is written correctly, issue is code
         Cell cell = moveChecker.generateOpponent(CellStatus.DARK);
 
-        assertTrue(cells[2][3] == cell && cells[3][2] == cell &&
-                cells[4][5] == cell && cells[5][4] == cell);
+        assertTrue(cells[2][4] == cell || cells[3][5] == cell ||
+                cells[4][2] == cell || cells[5][3] == cell);
         assertTrue(cell.getMove() != null);
         assertTrue(cell.getMove().getMoves().size() == 1);
         assertTrue(cell.getMove().getScore() == 1);
@@ -53,8 +53,8 @@ class MoveCheckerTest {
         // Test is written correctly
         Cell cell = moveChecker.generateOpponent(CellStatus.LIGHT);
 
-        assertTrue(cells[2][4] == cell && cells[3][5] == cell &&
-                cells[4][2] == cell && cells[5][3] == cell);
+        assertTrue(cells[2][3] == cell || cells[3][2] == cell ||
+                cells[4][5] == cell || cells[5][4] == cell);
         assertTrue(cell.getMove() != null);
         assertTrue(cell.getMove().getMoves().size() == 1);
         assertTrue(cell.getMove().getScore() == 1);
@@ -71,7 +71,7 @@ class MoveCheckerTest {
     @Test
     void findPotentialMoves() {
         ArrayList<Cell> grayCells = moveChecker.findPotentialMoves(CellStatus.DARK);
-        assertTrue(grayCells.size() == 5);
+        assertTrue(grayCells.size() == 4);
         assertTrue(grayCells.contains(cells[2][4]));
         assertTrue(grayCells.contains(cells[3][5]));
         assertTrue(grayCells.contains(cells[4][2]));

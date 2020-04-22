@@ -25,7 +25,7 @@
     - Logic Error: corrected the first test condition in the `generateOpponentDark` and 
     `generateOpponentLight` methods in the `MoveCheckerTest.java`.
     - Logic Error: changed `d_col += dir[0];` to `d_col += dir[1];` so that the correct cells
-    are checked in the isLegal method of the `Cell.java` file.
+    are checked in the `isLegal` method of the `Cell.java` file.
     - Logic Error: added a condition to the `flipPieces` method in the `MoveChecker.java`
     in order to prevent the program from attempting to flip pieces off the board or flip
     pieces infinitely.
@@ -34,7 +34,15 @@
     correctly identify  legal moves.
     
 * v1.1.4 [2020-04-22]: Bug Fixes
-    - Logic Error: corrected the `getRow()` method in the `Cell.java` file by correctly returning the 
+    - Logic Error: corrected the `getRow` method in the `Cell.java` file by correctly returning the 
     row and not the column.
-    - Logic Error: changed the flip pieces method so that the empty cell at the start of the move is
+    - Logic Error: changed the `flipPieces` method in the `MoveChecker.java` file so that the empty cell at the start of the move is
     coloured before the while loop starts which colours all the pieces between. 
+    
+* v1.1.5 [2020-04-22]: Test Fixes
+    - Logic Error: reversed the changes made to the first test condition in the 
+    `generateOpponentDark` and `generateOpponentLight` methods in the `MoveCheckerTest.java` in v1.1.3 and then
+    changed the logical operator from `&&` to `||` in order to correctly compare the conditions.
+    - Assertion Error: corrected the checking condition in the `findPotentialMoves` test method in the 
+    `MoveCheckerTest.java` as it wrongly asserted that there should be 5 potential moves when there should 
+    only be 4.
