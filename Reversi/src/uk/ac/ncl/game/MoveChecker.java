@@ -1,6 +1,6 @@
 /**
  * @author Kostiantyn Potomkin
- * @version 1.1.5
+ * @version 1.1.6
  * @since 05-03-2020
  */
 package uk.ac.ncl.game;
@@ -57,7 +57,7 @@ public class MoveChecker {
             int d_row = cell.getRow();
             int d_col = cell.getColumn();
             this.cells[d_row][d_col].setValue(colour);
-            while (d_row != move.getCell().getRow() && d_col != move.getCell().getColumn()) {
+            while (d_row != move.getCell().getRow() || d_col != move.getCell().getColumn()) {
                 d_row += dir[0];
                 d_col += dir[1];
                 this.cells[d_row][d_col].setValue(colour);

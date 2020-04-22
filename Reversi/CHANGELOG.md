@@ -46,3 +46,7 @@
     - Assertion Error: corrected the checking condition in the `findPotentialMoves` test method in the 
     `MoveCheckerTest.java` as it wrongly asserted that there should be 5 potential moves when there should 
     only be 4.
+    
+* v1.1.6 [2020-04-22]: Bug Fixes
+    - Logic Error: changed the logical operator in the condition of the while loop in the
+    `flipPieces method` in the `MoveChecker.java` file from `&&` to `||`. Now pieces are correctly flipped.    
