@@ -1,6 +1,6 @@
 /**
  * @author Kostiantyn Potomkin
- * @version 1.1.6
+ * @version 1.1.7
  * @since 05-03-2020
  */
 package uk.ac.ncl.ui;
@@ -101,8 +101,7 @@ public class MainPanel extends JFrame {
     /**
      * Makes a move for the opponent
      *
-     * @param opponent the object which represents an opposing player for the player of the
-     *                 game, operated by the computer
+     * @param opponent the cell chosen by the opponent
      */
     private void MoveOpponent(Cell opponent){
         moveChecker.flipPieces(opponent, OPPONENTS_CELL_STATUS);

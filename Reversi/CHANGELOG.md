@@ -49,4 +49,11 @@
     
 * v1.1.6 [2020-04-22]: Bug Fixes
     - Logic Error: changed the logical operator in the condition of the while loop in the
-    `flipPieces method` in the `MoveChecker.java` file from `&&` to `||`. Now pieces are correctly flipped.    
+    `flipPieces method` in the `MoveChecker.java` file from `&&` to `||`. Now pieces are correctly flipped.  
+    
+* v1.1.7 [2020-04-23]: Bug Fixes
+    - Logic Error: changed `this.cells[column][row].getValue()` to `this.cells[row][column].getValue()` in the
+    `getFinalScore` method of the `MoveChecker.java` file so that cells on the board were correctly searched for the final
+    score count.
+    - Logic Error: corrected the test condition in the `getFinalScore` test in the `MoveCheckerTest.java` file.
+    
