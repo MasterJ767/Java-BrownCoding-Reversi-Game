@@ -128,6 +128,10 @@ public class MainPanel extends JFrame {
                 ActionListener taskPerformer = ae -> MoveOpponent(opponent);
                 setUpTimer(taskPerformer);
             }
+            else {
+                JOptionPane.showMessageDialog(this, moveChecker.getFinalScore());
+                System.exit(0);
+            }
         }
         else{
             CheckNextMove(moveChecker);

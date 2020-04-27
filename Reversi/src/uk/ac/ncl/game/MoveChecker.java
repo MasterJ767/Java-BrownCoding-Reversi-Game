@@ -8,7 +8,9 @@ package uk.ac.ncl.game;
 import uk.ac.ncl.entity.CellStatus;
 import uk.ac.ncl.entity.DirectedMove;
 import uk.ac.ncl.entity.Cell;
+import uk.ac.ncl.ui.MainPanel;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 import static uk.ac.ncl.Constants.*;
