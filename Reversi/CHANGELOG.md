@@ -57,6 +57,9 @@
     score count.
     - Logic Error: corrected the test condition in the `getFinalScore` test in the `MoveCheckerTest.java` file.
     
-* v1.1.8 [2020-04-]: Bug Fixes
+* v1.1.8 [2020-04-27]: Bug Fixes
     - Logic Error: added a code block to the `movePlayer` method in the `MainPanel.java` file so that when the opponent 
     is unable to move the game ends correctly.
+    
+* v1.1.9 [2020-04-28]: Bug Fixes
+    - Logic Error: made some minor tweaks to the fix in v.1.1.8

@@ -1,6 +1,6 @@
 /**
  * @author Kostiantyn Potomkin
- * @version 1.1.7
+ * @version 1.1.9
  * @since 05-03-2020
  */
 package uk.ac.ncl.ui;
@@ -108,8 +108,9 @@ public class MainPanel extends JFrame {
         missedMoves += 1;
         moveChecker.removeMoves(grayCells);
         grayCells = moveChecker.findPotentialMoves(PLAYERS_CELL_STATUS);
-        if (grayCells.size() == 0)
+        if (grayCells.size() == 0) {
             missedMoves += moveChecker.findPotentialMoves(OPPONENTS_CELL_STATUS).size() > 0 ? 1 : 2;
+        }
         CheckNextMove(moveChecker);
     }
 
